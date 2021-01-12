@@ -1,11 +1,20 @@
 <h1>Foods</h1>
-<%= link_to  "New Food", new_food_path %>
-<% @foods.each do |food| %>
-<hr>
-<h3><%= food.name %></h3>
-<p><%= food.price %></p>
-<%= link_to  "Show", food %>
-<%= link_to  "Edit", edit_food_path(food), method: :get  %>
-<%= link_to  "Destroy", food_path(food), method: :delete %>
-<hr>
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.email %></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+  <br>
+  <%= link_to  "New Food", new_food_path %>
+  <% @foods.each do |food| %>
+  <hr>
+  <h3><%= food.name %></h3>
+  <p><%= food.price %></p>
+  <%= link_to  "Show", food %>
+  <%= link_to  "Edit", edit_food_path(food), method: :get  %>
+  <%= link_to  "Destroy", food_path(food), method: :delete %>
+  <hr>
+<% end %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>

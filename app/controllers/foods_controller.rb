@@ -1,4 +1,6 @@
 class FoodsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
+  
   def index
     @foods = Food.all
   end
@@ -42,5 +44,9 @@ class FoodsController < ApplicationController
   private
     def food_params
       params.require(:food).permit(:name, :price)
+    end
+
+    def log_in?
+        
     end
 end
