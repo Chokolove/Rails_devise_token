@@ -1,0 +1,11 @@
+<h1>Foods</h1>
+<%= link_to  "New Food", new_food_path %>
+<% @foods.each do |food| %>
+<hr>
+<h3><%= food.name %></h3>
+<p><%= food.price %></p>
+<%= link_to  "Show", food %>
+<%= link_to  "Edit", edit_food_path(food), method: :get  %>
+<%= link_to  "Destroy", food_path(food), method: :delete %>
+<hr>
+<% end %>
