@@ -1,6 +1,6 @@
 class Api::FoodsController < ApiController
   before_action :set_food, only: %i[show edit update destroy]
-  # before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[create edit update destroy]
 
   def index
     render json: Food.all

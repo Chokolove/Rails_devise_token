@@ -5,6 +5,9 @@ ruby '2.7.2'
 
 gem 'devise'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'devise_token_auth'
+gem 'rack-cors', :require => 'rack/cors'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
